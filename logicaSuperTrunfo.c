@@ -1,43 +1,67 @@
 #include <stdio.h>
 
-// Desafio Super Trunfo - Países
-// Tema 2 - Comparação das Cartas
-// Este código inicial serve como base para o desenvolvimento do sistema de comparação de cartas de cidades. 
-// Siga os comentários para implementar cada parte do desafio.
-
 int main() {
-    // Definição das variáveis para armazenar as propriedades das cidades
-    // Você pode utilizar o código do primeiro desafio
+    // Variáveis da carta 1
+    char nome1[] = "Reino de Eldoria";
+    int populacao1 = 8500; // em milhares
+    float pib1 = 320.75;   // em bilhões
+    int pontosTuristicos1 = 12;
 
-    
-    // Cadastro das Cartas:
-    // Implemente a lógica para solicitar ao usuário que insira os dados das cidades
-    // utilizando a função scanf para capturar as entradas.
-    // utilize o código do primeiro desafio
+    // Variáveis da carta 2
+    char nome2[] = "Império de Zandor";
+    int populacao2 = 9200; // em milhares
+    float pib2 = 410.60;   // em bilhões
+    int pontosTuristicos2 = 18;
 
-    // Exemplo:
-    // printf("Digite o código da cidade: ");
-    // scanf("%s", codigo);
-    // 
-    // (Repita para cada propriedade)
+    int escolha;
 
-    // Comparação de Cartas:
-    // Desenvolva a lógica de comparação entre duas cartas.
-    // Utilize estruturas de decisão como if, if-else para comparar atributos como população, área, PIB, etc.
+    printf("======= DESAFIO DE LOGICA: SUPER TRUNFO DOS PAISES =======\n");
 
-    // Exemplo:
-    // if (populacaoA > populacaoB) {
-    //     printf("Cidade 1 tem maior população.\n");
-    // } else {
-    //     printf("Cidade 2 tem maior população.\n");
-    // }
+    printf("\n--- Sua carta: %s ---\n", nome1);
+    printf("1 - Populacao: %d mil habitantes\n", populacao1);
+    printf("2 - PIB: %.2f bilhoes\n", pib1);
+    printf("3 - Pontos Turisticos: %d locais\n", pontosTuristicos1);
 
-    // Exibição dos Resultados:
-    // Após realizar as comparações, exiba os resultados para o usuário.
-    // Certifique-se de que o sistema mostre claramente qual carta venceu e com base em qual atributo.
+    // Escolha do jogador
+    printf("\nEscolha um atributo para competir (1-População, 2-PIB, 3-Pontos Turísticos): ");
+    scanf("%d", &escolha);
 
-    // Exemplo:
-    // printf("A cidade vencedora é: %s\n", cidadeVencedora);
+    // Mostra carta do oponente
+    printf("\n--- Carta do oponente: %s ---\n", nome2);
+    printf("Populacao: %d mil habitantes\n", populacao2);
+    printf("PIB: %.2f bilhoes\n", pib2);
+    printf("Pontos Turisticos: %d locais\n", pontosTuristicos2);
+
+    // Verificação do vencedor
+    printf("\nResultado:\n");
+    switch(escolha) {
+        case 1:
+            if (populacao1 > populacao2)
+                printf("Você venceu! Sua população é maior.\n");
+            else if (populacao1 < populacao2)
+                printf("Você perdeu! A população do oponente é maior.\n");
+            else
+                printf("Empate! Populações iguais.\n");
+            break;
+        case 2:
+            if (pib1 > pib2)
+                printf("Você venceu! Seu PIB é maior.\n");
+            else if (pib1 < pib2)
+                printf("Você perdeu! O PIB do oponente é maior.\n");
+            else
+                printf("Empate! PIBs iguais.\n");
+            break;
+        case 3:
+            if (pontosTuristicos1 > pontosTuristicos2)
+                printf("Você venceu! Mais pontos turísticos.\n");
+            else if (pontosTuristicos1 < pontosTuristicos2)
+                printf("Você perdeu! Oponente tem mais pontos turísticos.\n");
+            else
+                printf("Empate! Mesmo número de pontos turísticos.\n");
+            break;
+        default:
+            printf("Escolha inválida.\n");
+    }
 
     return 0;
 }
